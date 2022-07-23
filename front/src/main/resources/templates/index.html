@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>DL System Test</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css?family=Poppins:400,500,600%7CTeko:300,400,500%7CMaven+Pro:500">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .ie-panel {
+            display: none;
+            background: #212121;
+            padding: 10px 0;
+            box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+            clear: both;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        html.ie-10 .ie-panel,
+        html.lt-ie-10 .ie-panel {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<!-- <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/">
+    <img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+      alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+</div> -->
+<!--
+<div class="preloader">
+  <div class="preloader-body">
+    <div class="cssload-container"><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</div>  -->
+
+
+<div class="page">
+    <div id="home">
+        <!-- Top Banner-->
+        <!-- <a class="section section-banner text-center d-none d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/banner-bg-02-1920x60.jpg); background-image: -webkit-image-set( url(images/banner/banner-bg-02-1920x60.jpg) 1x, url(images/banner/banner-bg-02-3840x120.jpg) 2x )" target="_blank"><img src="images/banner/banner-fg-02-1600x60.png" srcset="images/banner/banner-fg-02-1600x60.png 1x, images/banner/banner-fg-02-3200x120.png 2x" alt="" width="1600" height="310"></a> -->
+        <!-- Page Header-->
+        <header class="section page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+                     data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed"
+                     data-lg-layout="rd-navbar-static"
+                     data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                     data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+                     data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px"
+                     data-xl-stick-up-offset="46px"
+                     data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true"
+                     data-xxl-stick-up="true">
+                    <div class="rd-navbar-main-outer">
+                        <div class="rd-navbar-main">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap">
+                                    <span></span></button>
+                                <!-- RD Navbar Brand-->
+                                <div class="rd-navbar-brand"><a class="brand" href="index.html">
+                                    <!-- <img src="images/logo-default-223x50.png" alt="" width="223" height="50" /></a> -->
+                                    <a class="rd-nav-link" style="font-size: 30px; height: 50px;" href="#home">DL System
+                                        Test</a>
+                                </div>
+                            </div>
+                            <div class="rd-navbar-main-element">
+                                <div class="rd-navbar-nav-wrap">
+                                    <!-- RD Navbar Share-->
+
+                                    <!-- <div class="rd-navbar-share fa-brands fa-github"> -->
+
+
+                                    <div class="rd-navbar-share">
+                                        <a class="fa-brands fa-github" href="https://github.com/wzqwtt/DLTestOnline">
+                                            Star Me!</a>
+                                    </div>
+
+                                    <ul class="rd-navbar-nav">
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#feature">Feature</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#models">Models</a></li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="#play">Play</a></li>
+                                        <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="#news">News</a></li> -->
+                                        <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="#contacts">Contacts</a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Swiper-->
+        <section class="section swiper-container swiper-slider swiper-slider-classic" data-loop="true"
+                 data-autoplay="4859" data-simulate-touch="true" data-direction="vertical" data-nav="false">
+            <div class="swiper-wrapper text-center">
+                <div class="swiper-slide" data-slide-bg="images/bgslider-1-slide-2-1770x742.jpg">
+                    <div class="swiper-slide-caption section-md">
+                        <div class="container">
+                            <h1 data-caption-animate="fadeInLeft" data-caption-delay="0">DeepXplore</h1>
+                            <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100"
+                               style="font-size: 21px;">
+                                Automated Whitebox Testing of Deep Learning Systems
+                                <br>
+                                深度学习系统的自动白盒测试框架
+                            </p>
+                            <a class="button button-primary button-ujarak" href="#modalCtaDeepXplore"
+                               data-toggle="modal"
+                               data-caption-animate="fadeInUp" data-caption-delay="200">DeepXplore Abstract</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="swiper-slide" data-slide-bg="images/bg1slider-1-slide-4-1770x742.jpg">
+                  <div class="swiper-slide-caption section-md">
+                    <div class="container">
+                      <h1 data-caption-animate="fadeInLeft" data-caption-delay="0">Experienced Team</h1>
+                      <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100">We are a team of
+                        qualified software developers, aimed at creating unique and powerful tools for your business &
+                        everyday life.</p><a class="button button-primary button-ujarak" href="#modalCta" data-toggle="modal"
+                        data-caption-animate="fadeInUp" data-caption-delay="200">Get in touch</a>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="swiper-slide" data-slide-bg="images/bg1slider-1-slide-4-1770x742.jpg">
+                    <div class="swiper-slide-caption section-md">
+                        <div class="container">
+                            <h1 data-caption-animate="fadeInLeft" data-caption-delay="0">其他深度学习系统测试算法</h1>
+                            <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100">The
+                                software
+                                solutions developed by our company have been numerously awarded for usability and
+                                innovative features.
+                            </p><a class="button button-primary button-ujarak" href="#modalCtaElse" data-toggle="modal"
+                                   data-caption-animate="fadeInUp" data-caption-delay="200">正在努力开发！</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Swiper Pagination-->
+            <div class="swiper-pagination__module">
+                <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index">00</span><span
+                        class="swiper-pagination__fraction-divider">/</span><span
+                        class="swiper-pagination__fraction-count">00</span></div>
+                <div class="swiper-pagination__divider"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- See all services-->
+    <section class="section section-sm section-first bg-default text-center" id="feature">
+        <div class="container">
+            <div class="row row-30 justify-content-center">
+
+                <div class="col-md-7 col-lg-5 col-xl-6 text-lg-left wow fadeInUp">
+                    <img style="height: 710px;margin-left: 70px;" src="images/driver1.jpg" alt=""/>
+                </div>
+
+                <div class="col-lg-7 col-xl-6">
+                    <div class="row row-30">
+                        <div class="col-sm-6 wow fadeInRight">
+                            <article class="box-icon-modern box-icon-modern-custom">
+                                <div>
+                                    <h3 class="box-icon-modern-big-title">DL System Test</h3>
+                                    <div class="box-icon-modern-decor"></div>
+                                    <!-- <a class="button button-primary button-ujarak" href="#">View All Services</a> -->
+                                    <p class="box-icon-modern-text">这是一个深度学习测试网站，在这里可以使用DeepXplore进行深度学习系统的测试</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-sm-6 wow fadeInRight" data-wow-delay=".1s">
+                            <article class="box-icon-modern box-icon-modern-2">
+                                <div class="box-icon-modern-icon linearicons-phone-in-out"></div>
+                                <h5 class="box-icon-modern-title"><a href="https://paperswithcode.com/dataset/udacity">数据集
+                                    <br>
+                                    Udacity </a></h5>
+                                <div class="box-icon-modern-decor"></div>
+                                <p class="box-icon-modern-text">Udacity
+                                    数据集主要由取自城市道路的视频帧组成。它总共提供了404,916个用于训练的视频帧和5,614个用于测试的视频帧。
+                                </p>
+                            </article>
+                        </div>
+                        <div class="col-sm-6 wow fadeInRight" data-wow-delay=".2s">
+                            <article class="box-icon-modern box-icon-modern-2">
+                                <div class="box-icon-modern-icon linearicons-headset"></div>
+                                <h5 class="box-icon-modern-title"><a href="#">微服务<br>Microservices</a></h5>
+                                <div class="box-icon-modern-decor"></div>
+                                <p class="box-icon-modern-text">该网站使用微服务架构，大致分为网站后端、第三方服务、深度学习测试系统这几个服务。</p>
+                            </article>
+                        </div>
+                        <div class="col-sm-6 wow fadeInRight" data-wow-delay=".3s">
+                            <article class="box-icon-modern box-icon-modern-2">
+                                <div class="box-icon-modern-icon linearicons-outbox"></div>
+                                <h5 class="box-icon-modern-title"><a href="#">可扩展<br>Scalable</a></h5>
+                                <div class="box-icon-modern-decor"></div>
+                                <p class="box-icon-modern-text">由于使用微服务架构，这使得本网站具有很强的可扩展性，当有其他DL系统测试框架，只需要加个服务就好了。</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Years of experience-->
+    <br>
+    <br>
+    <section class="section section-sm bg-default" id="models">
+        <div class="container">
+            <h2>Model</h2>
+            <div class="row row-30 row-xl-24 justify-content-center align-items-center align-items-lg-start text-left">
+                <div class="col-md-6 col-lg-5 col-xl-4 text-center"><a class="text-img" href="#">
+                    <div id="particles-js"></div>
+                    <span class="counter">3</span>
+                </a></div>
+                <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="text-width-extra-small offset-top-lg-24 wow fadeInUp">
+                        <h3 class="title-decoration-lines-left">self-driving Systems</h3>
+                        <p class="text-gray-500">
+                            3个基于NVIDIA的Dave-2自动驾驶汽车架构的DNN,分别是:
+                            <br>
+                            Dave-orig,Dave-Norminit,Dave-Dropout
+                        </p>
+                        <!-- <a class="button button-secondary button-pipaluk" href="#modalCtaModel">DNN Details</a> -->
+                        <a class="button button-primary button-ujarak" href="#modalCtaModel" data-toggle="modal"
+                           data-caption-animate="fadeInUp" data-caption-delay="200">DNN Details</a>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay=".1s">
+                    <div class="row justify-content-center border-2-column offset-top-xl-26">
+                        <div class="col-9 col-sm-6">
+                            <div class="counter-amy">
+                                <div class="counter-amy-number"><span class="counter">2</span><span
+                                        class="symbol">k</span>
+                                </div>
+                                <h6 class="counter-amy-title">Test</h6>
+                            </div>
+                        </div>
+                        <div class="col-9 col-sm-6">
+                            <div class="counter-amy">
+                                <div class="counter-amy-number"><span class="counter">40</span>
+                                </div>
+                                <h6 class="counter-amy-title">Test</h6>
+                            </div>
+                        </div>
+                        <div class="col-9 col-sm-6">
+                            <div class="counter-amy">
+                                <div class="counter-amy-number"><span class="counter">12</span>
+                                </div>
+                                <h6 class="counter-amy-title">Test</h6>
+                            </div>
+                        </div>
+                        <div class="col-9 col-sm-6">
+                            <div class="counter-amy">
+                                <div class="counter-amy-number"><span class="counter">160</span>
+                                </div>
+                                <h6 class="counter-amy-title">Test</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-12 align-self-center">
+                    <!-- <div class="row row-30 justify-content-center">
+                      <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft"><a class="clients-classic" href="#"><img
+                            src="images/clients-9-270x117.png" alt="" width="270" height="117" /></a></div>
+                      <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft" data-wow-delay=".1s"><a
+                          class="clients-classic" href="#"><img src="images/clients-10-270x117.png" alt="" width="270"
+                            height="117" /></a></div>
+                      <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft" data-wow-delay=".2s"><a
+                          class="clients-classic" href="#"><img src="images/clients-3-270x117.png" alt="" width="270"
+                            height="117" /></a></div>
+                      <div class="col-sm-6 col-md-5 col-lg-6 col-xl-3 wow fadeInLeft" data-wow-delay=".3s"><a
+                          class="clients-classic" href="#"><img src="images/clients-11-270x117.png" alt="" width="270"
+                            height="117" /></a></div>
+                    </div> -->
+                    <img src="images/model1.png" style="margin-left: 47px;" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing-->
+    <br><br>
+    <section class="section section-sm section-bottom-70 section-fluid bg-default" id="play">
+        <div class="container">
+            <h2>Play DL Test!</h2>
+            <div class="row row-30 justify-content-center">
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <div class="box-pricing box-pricing-black">
+                        <div class="box-pricing-body">
+                            <!-- <h5 class="box-pricing-title">basic</h5> -->
+                            <h3 class="box-pricing-price">DeepHunter</h3>
+                            <div class="box-pricing-time">未来计划</div>
+                            <div class="box-pricing-divider">
+                                <div class="divider"></div>
+                                <span>Basic</span>
+                            </div>
+                            <ul class="box-pricing-list">
+                                <li class="active">模糊测试</li>
+                                <li class="active">神经元覆盖</li>
+                                <li class="active">k-多区域神经元覆盖</li>
+                                <li class="active">神经元边界覆盖</li>
+                                <li class="active">强神经元激活覆盖</li>
+                            </ul>
+                        </div>
+                        <div class="box-pricing-button">
+                            <a class="button button-lg button-block button-gray-4" href="#">No started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <div class="box-pricing box-pricing-black box-pricing-popular">
+                        <div class="box-pricing-body">
+                            <!-- <h5 class="box-pricing-title">Optimal</h5> -->
+                            <h3 class="box-pricing-price">DeepXplore</h3>
+                            <div class="box-pricing-time">可使用</div>
+                            <div class="box-pricing-divider">
+                                <div class="divider"></div>
+                                <span>Optimal</span>
+                            </div>
+                            <ul class="box-pricing-list">
+                                <li class="active">最大化神经元覆盖率</li>
+                                <li class="active">最大化差异化行为</li>
+                                <li class="active">联合优化</li>
+                                <li class="active">特定于领域的约束</li>
+                                <li class="active">生成测试用例</li>
+                            </ul>
+                        </div>
+                        <div class="box-pricing-button">
+                            <a class="button button-lg button-block button-primary" href="#">Get started</a>
+                        </div>
+                        <div class="box-pricing-badge">popular</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <div class="box-pricing box-pricing-black">
+                        <div class="box-pricing-body">
+                            <!-- <h5 class="box-pricing-title">Ultimate</h5> -->
+                            <h3 class="box-pricing-price">DeepCover</h3>
+                            <div class="box-pricing-time">未来计划</div>
+                            <div class="box-pricing-divider">
+                                <div class="divider"></div>
+                                <span>Ultimate</span>
+                            </div>
+                            <ul class="box-pricing-list">
+                                <li class="active">符号-符号覆盖</li>
+                                <li class="active">距离-符号覆盖</li>
+                                <li class="active">符号-值覆盖</li>
+                                <li class="active">距离-值覆盖</li>
+                                <li class="active">生成测试用例</li>
+                            </ul>
+                        </div>
+                        <div class="box-pricing-button">
+                            <a class="button button-lg button-block button-gray-4" href="#">No started</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Projects-->
+    <section class="section section-sm section-fluid bg-default text-center">
+        <div class="container-fluid">
+            <!-- <h2 class="wow fadeInLeft">Latest Projects</h2> -->
+            <!-- <p class="quote-jean wow fadeInRight" data-wow-delay=".1s">In our portfolio, you can browse the latest products
+              developed for our clients for different corporate purposes. Our qualified team of interface designers and
+              software developers is always ready to create something unique for you.</p> -->
+            <!-- <div class="isotope-filters isotope-filters-horizontal">
+              <button class="isotope-filters-toggle button button-md button-icon button-icon-right button-default-outline button-wapasha"
+                data-custom-toggle="#isotope-3" data-custom-toggle-hide-on-blur="true"
+                data-custom-toggle-disable-on-blur="true"><span class="icon fa fa-caret-down"></span>Filter</button>
+              <ul class="isotope-filters-list" id="isotope-3">
+                <li><a class="active" href="#" data-isotope-filter="*" data-isotope-group="gallery">All</a></li>
+                <li><a href="#" data-isotope-filter="Type 1" data-isotope-group="gallery">mobile Apps</a></li>
+                <li><a href="#" data-isotope-filter="Type 2" data-isotope-group="gallery">Custom Software</a></li>
+                <li><a href="#" data-isotope-filter="Type 3" data-isotope-group="gallery">QA & Testing</a></li>
+                <li><a href="#" data-isotope-filter="Type 4" data-isotope-group="gallery">UX and Design</a></li>
+              </ul>
+            </div> -->
+
+            <div class="row row-30 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery"
+                 data-lightgallery="group">
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure">
+                            <img src="images/fullwidth-gallery-1-420x350.jpg" alt="" width="420" height="350"/>
+                        </div>
+                        <!-- <div class="thumbnail-classic-caption">
+                          <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                              href="images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item"><img
+                                src="images/fullwidth-gallery-1-420x350.jpg" alt="" width="420" height="350" /></a>
+                            <h5 class="thumbnail-classic-title"><a href="#">FinStep</a></h5>
+                          </div>
+                          <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features with great UI
+                            that you won’t find anywhere else.</p>
+                        </div> -->
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1"
+                     data-wow-delay=".1s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-2-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-2-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-2-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">Mobile Finance</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2"
+                     data-wow-delay=".2s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-3-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-3-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-3-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">Q-Manage</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3"
+                     data-wow-delay=".3s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-4-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-4-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-4-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">WeatherCast</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 3">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-5-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-5-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-5-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">Home Calendar</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 1"
+                     data-wow-delay=".1s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-6-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-6-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-6-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">MPlanner</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 2"
+                     data-wow-delay=".2s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-7-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-7-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-7-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">Alice Messenger</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 3"
+                     data-wow-delay=".3s">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-classic thumbnail-md">
+                        <div class="thumbnail-classic-figure"><img src="images/fullwidth-gallery-8-420x350.jpg" alt=""
+                                                                   width="420"
+                                                                   height="350"/>
+                        </div>
+                        <div class="thumbnail-classic-caption">
+                            <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60"
+                                                                         href="images/grid-gallery-8-1200x800-original.jpg"
+                                                                         data-lightgallery="item"><img
+                                    src="images/fullwidth-gallery-8-420x350.jpg" alt="" width="420" height="350"/></a>
+                                <h5 class="thumbnail-classic-title"><a href="#">WiseMoney</a></h5>
+                            </div>
+                            <p class="thumbnail-classic-text">We work hard on every app to deliver top-notch features
+                                with great UI
+                                that you won’t find anywhere else.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer-->
+    <footer class="section section-fluid footer-minimal context-dark">
+        <div class="bg-gray-15">
+            <div class="container-fluid">
+                <div class="footer-minimal-bottom-panel text-sm-left">
+                    <div class="row row-10 align-items-md-center">
+                        <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+                            <div>
+                                《深度学习系统白盒测试框架》
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 order-sm-first">
+                            <!-- Rights-->
+                            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>NJAU 人工智能学院
+                    姜海燕——软件开发方法论</span></p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 text-md-right">
+                            <span>All rights reserved.</span>
+                            <span>Design&nbsp;by&nbsp;<a
+                                    href="https://github.com/wzqwtt/DLTestOnline">2021819020 王宗钦</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- 对话框 -->
+    <div class="modal fade" id="modalCta" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 1000px; width: 1000px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Contact Us</h4>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <img src="images/bg1.jpg" alt=""> -->
+                    aa
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCtaDeepXplore" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px; width: 1000px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>DeepXplore Abstract</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <!-- <img src="images/bg1.jpg" alt=""> -->
+                Kexin Pei, Yinzhi Cao, Junfeng Yang, and Suman Jana. 2019. DeepXplore: automated whitebox testing of
+                deep
+                learning systems. Commun. ACM 62, 11 (November 2019), 137–145. https://doi.org/10.1145/3361566
+                <br>
+                <hr>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; Deep learning (DL) systems are increasingly deployed in safety- and
+                security-critical
+                domains such as self-driving cars and malware detection, where the correctness and predictability of a
+                system's behavior for corner case inputs are of great importance. Existing DL testing depends heavily on
+                manually labeled data and therefore often fails to expose erroneous behaviors for rare inputs.
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; We design, implement, and evaluate DeepXplore, the first white-box framework
+                for
+                systematically testing real-world DL systems. First, we introduce neuron coverage for measuring the
+                parts of a
+                DL system exercised by test inputs. Next, we leverage multiple DL systems with similar functionality as
+                cross-referencing oracles to avoid manual checking. Finally, we demonstrate how finding inputs for DL
+                systems
+                that both trigger many differential behaviors and achieve high neuron coverage can be represented as a
+                joint
+                optimization problem and solved efficiently using gradient-based search techniques.
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp; DeepXplore efficiently finds thousands of incorrect corner case behaviors
+                (e.g.,
+                self-driving cars crashing into guard rails and malware masquerading as benign software) in
+                state-of-the-art
+                DL models with thousands of neurons trained on five popular datasets such as ImageNet and Udacity
+                self-driving
+                challenge data. For all tested DL models, on average, DeepXplore generated one test input demonstrating
+                incorrect behavior within one second while running only on a commodity laptop. We further show that the
+                test
+                inputs generated by DeepXplore can also be used to retrain the corresponding DL model to improve the
+                model's
+                accuracy by up to 3%.
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="modalCtaElse" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px; width: 1000px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>其他深度学习测试框架</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <!-- <img src="images/bg1.jpg" alt=""> -->
+                正在努力开发中！
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalCtaModel" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px; width: 1000px;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>三个测试的DNN</h4>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <!-- <img src="images/bg1.jpg" alt=""> -->
+                三个测试的DNN都被用于训练自动驾驶系统,三个DNN分别是:
+                <br><br>
+                <hr>
+                <br>
+                <b>Dave-orig:</b> Mariusz Bojarski, Davide Del Testa, Daniel Dworakowski, Bernhard Firner, Beat Flepp,
+                Prasoon Goyal, Lawrence D Jackel, Mathew Monfort, Urs Muller, Jiakai Zhang, et al . 2016. End to end
+                learning for self-driving cars. arXiv preprint arXiv:1604.07316 (2016).
+                <br><br>
+                <hr>
+                <br>
+                <b>Dave-norminit:</b> visualize:dave 2016. Visualizations for understanding the regressed wheel steering
+                angle for self driving cars. https://github.com/jacobgil/ keras-steering-angle-visualizations. (2016).
+                <br><br>
+                <hr>
+                <br>
+                <b>Dave-dropout:</b> clone:dave 2016. Behavioral cloning: end-to-end learning for selfdriving cars.
+                https://github.com/navoshta/behavioral-cloning. (2016).
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Javascript-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
+<!-- coded by Himic-->
+</body>
+
+</html>
