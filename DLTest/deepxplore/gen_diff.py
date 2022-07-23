@@ -4,10 +4,13 @@ usage: python gen_diff.py -h
 
 from __future__ import print_function
 import argparse
+import time
+
 from scipy.misc import imsave
 from driving_models import *
 from utils import *
 import keras
+import oss2
 
 
 # import matplotlib.pyplot as plt
@@ -34,6 +37,10 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
 
     args = parser.parse_args()
 
+    # aliyun OSS
+    auth = oss2.Auth('yourAccessKeyId', 'yourAccessKeySecret')
+    bucket = oss2.Bucket(auth, 'yourEndpoint', 'examplebucket')
+
     # input image dimensions
     img_rows, img_cols = 100, 100
     input_shape = (img_rows, img_cols, 3)
@@ -51,7 +58,6 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
 
     # ==============================================================================================
     # start gen inputs
-
 
     img_paths = image.list_pictures('./testing/center', ext='jpg')
     # print(img_paths)
@@ -161,18 +167,20 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
                 gen_img_deprocessed = draw_arrow(deprocess_image(gen_img), angle1, angle2, angle3)
                 orig_img_deprocessed = draw_arrow(deprocess_image(orig_img), orig_angle1, orig_angle2, orig_angle3)
 
-                # plt.imshow(gen_img_deprocessed)
-                # plt.show()
                 # save the result to disk
-                imsave('./generated_inputs1/' + transformation + '_' + str(angle1) + '_' + str(angle2) + '_' + str(
-                    angle3) + '.png', gen_img_deprocessed)
+                gen_img = (transformation + '_' + str(angle1) + '_' + str(angle2) \
+                           + '_' + str(angle3) + '_' + str(int(time.time())) + '.png')
+                gen_img_path = './generated_inputs1/' + gen_img
+                imsave(gen_img_path, gen_img_deprocessed)
 
-                # plt.imshow(orig_img_deprocessed)
-                # plt.show()
-                print("111")
-                imsave('./generated_inputs1/' + transformation + '_' + str(angle1) + '_' + str(angle2) + '_' + str(
-                    angle3) + '_orig.png', orig_img_deprocessed)
+                orig_img = (transformation + '_' + str(angle1) + '_' + str(angle2) + '_' \
+                            + str(angle3) + '_orig' + '_' + str(int(time.time())) + '.png')
+                orig_img_path = './generated_inputs1/' + orig_img
+                imsave(orig_img_path, orig_img_deprocessed)
 
+                # upload image
+                bucket.put_object_from_file(gen_img, gen_img_path)
+                bucket.put_object_from_file(orig_img, orig_img_path)
                 break
 
 
