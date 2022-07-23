@@ -8,3 +8,11 @@ spring:
         server-addr: 192.168.10.1:8848
   application:
     name: front
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 500000
+        readTimeout: 500000
+        loggerLevel: basic
