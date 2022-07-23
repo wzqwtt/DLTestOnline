@@ -12,6 +12,7 @@
 
     <modules>
         <module>front</module>
+        <module>common</module>
     </modules>
 
 
