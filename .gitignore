@@ -1,2 +1,9 @@
 /.idea/
 /DLTest/.idea/
+/front/.mvn/
+/front/.gitignore
+/front/front.iml
+/front/HELP.md
+/front/mvnw
+/front/mvnw.cmd
+/DLTest.iml
