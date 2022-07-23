@@ -27,14 +27,14 @@ def deepxplore():
 
 def service_register():
     url = "http://" + NACOS_IP + ":" + NACOS_PORT + "/nacos/v1/ns/instance?serviceName=" \
-          + SERVICE_NAME + "&ip=" + SERVICE_IP + "&port=" + SERVICE_PORT
+          + SERVICE_NAME + "&ip=" + SERVICE_IP + "&port=" + SERVICE_PORT + "&ephemeral=false"
     res = requests.post(url)
 
 
 def service_beat():
     while True:
         url = "http://" + NACOS_IP + ":" + NACOS_PORT + "/nacos/v1/ns/instance/beat?serviceName=" \
-              + SERVICE_NAME + "&ip=" + SERVICE_IP + "&port=" + SERVICE_PORT
+              + SERVICE_NAME + "&ip=" + SERVICE_IP + "&port=" + SERVICE_PORT + "&ephemeral=false"
         res = requests.put(url)
         time.sleep(5)
 
