@@ -344,7 +344,8 @@
                             </ul>
                         </div>
                         <div class="box-pricing-button">
-                            <a class="button button-lg button-block button-primary" href="#">Get started</a>
+                            <a class="button button-lg button-block button-primary" href="javascript:void(0);"
+                               onclick="runDeepXplore()">Get started</a>
                         </div>
                         <div class="box-pricing-badge">popular</div>
                     </div>
@@ -377,50 +378,18 @@
 
 
     <section class="section section-sm section-fluid bg-default text-center">
-        <div class="container-fluid">
-            <h2>字体</h2>
-            <div class="row row-30">
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
+        <div class="container">
+            <div id="hintFont">
+                <h2>DL测试输出</h2>
+                <div class="row">
+                    <div class="col-md-3" style="font-size: 30px;">生成的图片</div>
+                    <div class="col-md-3" style="font-size: 30px;">测试输入</div>
+                    <div class="col-md-3" style="font-size: 30px;">生成的图片</div>
+                    <div class="col-md-3" style="font-size: 30px;">测试输入</div>
                 </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
+            </div>
+            <div id="message" class="row row-30">
 
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
-                <div class="col-md-3 isotope-item wow fadeInLeft">
-                    <img style="width: 400px;"
-                         src="https://deepxplore.oss-cn-hangzhou.aliyuncs.com/light_[-0.200223]_[-0.01020366]_[0.17212032]_1658586960.png"
-                         alt="">
-                </div>
             </div>
 
         </div>
@@ -572,12 +541,10 @@
     </div>
 </div>
 
-<button onclick="send()"></button>
-<div id="message"></div>
-
 <!-- Global Mailform Output-->
 <div class="snackbars" id="form-output-global"></div>
 <!-- Javascript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
     var websocket = null;
 
@@ -590,23 +557,34 @@
 
     //连接发生错误的回调方法
     websocket.onerror = function () {
-        setMessageInnerHTML("WebSocket连接发生错误");
+        console.log("WebSocket连接发生错误");
     };
 
     //连接成功建立的回调方法
     websocket.onopen = function () {
-        setMessageInnerHTML("WebSocket连接成功");
+        $("#hintFont").hide();
+        console.log("WebSocket连接成功");
     }
 
     //接收到消息的回调方法
     websocket.onmessage = function (event) {
         console.log(event);
-        setMessageInnerHTML(event);
+        console.log(event.data);
+        if (event.data == 'conn_success') {
+            return;
+        }
+        innerHTML = '<div class="col-md-3 isotope-item wow fadeInLeft">' +
+            '<img style="width: 400px;"' +
+            'src="' + event.data + '"' +
+            '</div>';
+        setMessageInnerHTML(innerHTML);
+        // setMessageInnerHTML(event);
     }
 
     //连接关闭的回调方法
     websocket.onclose = function () {
-        setMessageInnerHTML("WebSocket连接关闭");
+        // setMessageInnerHTML("WebSocket连接关闭");
+        console.log("webSocket连接关闭")
     }
 
     //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
@@ -616,7 +594,7 @@
 
     //将消息显示在网页上
     function setMessageInnerHTML(innerHTML) {
-        document.getElementById('message').innerHTML += innerHTML + '<br/>';
+        document.getElementById('message').innerHTML += innerHTML;
     }
 
     //关闭WebSocket连接
@@ -629,7 +607,15 @@
         // var message = document.getElementById('text').value;
         var message = "test";
         websocket.send('{"msg":"' + message + '"}');
-        setMessageInnerHTML(message + "&#13;");
+        // setMessageInnerHTML(message + "&#13;");
+    }
+
+    function runDeepXplore() {
+        console.log("Run DeepXplore...");
+        $.get("/deepxplore");
+        console.log("Run Kafka Consumer...");
+        $.get("/kafka");
+        $("#hintFont").show();
     }
 
 </script>
