@@ -11,6 +11,7 @@ from driving_models import *
 from utils import *
 import keras
 import oss2
+from kafka import KafkaProducer
 
 
 # import matplotlib.pyplot as plt
@@ -40,6 +41,11 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
     # aliyun OSS
     auth = oss2.Auth('yourAccessKeyId', 'yourAccessKeySecret')
     bucket = oss2.Bucket(auth, 'yourEndpoint', 'examplebucket')
+    url = 'https://deepxplore.oss-cn-hangzhou.aliyuncs.com/'
+
+    # kafka producer
+    producer = KafkaProducer(bootstrap_servers='192.168.10.100:9092')
+    topic = 'deepxplore'
 
     # input image dimensions
     img_rows, img_cols = 100, 100
@@ -168,12 +174,12 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
                 orig_img_deprocessed = draw_arrow(deprocess_image(orig_img), orig_angle1, orig_angle2, orig_angle3)
 
                 # save the result to disk
-                gen_img = (transformation + '_' + str(angle1) + '_' + str(angle2) \
+                gen_img = (transformation + '_' + str(angle1) + '_' + str(angle2)
                            + '_' + str(angle3) + '_' + str(int(time.time())) + '.png')
                 gen_img_path = './generated_inputs1/' + gen_img
                 imsave(gen_img_path, gen_img_deprocessed)
 
-                orig_img = (transformation + '_' + str(angle1) + '_' + str(angle2) + '_' \
+                orig_img = (transformation + '_' + str(angle1) + '_' + str(angle2) + '_'
                             + str(angle3) + '_orig' + '_' + str(int(time.time())) + '.png')
                 orig_img_path = './generated_inputs1/' + orig_img
                 imsave(orig_img_path, orig_img_deprocessed)
@@ -181,6 +187,13 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
                 # upload image
                 bucket.put_object_from_file(gen_img, gen_img_path)
                 bucket.put_object_from_file(orig_img, orig_img_path)
+
+                # img url path to Kafka
+                gen_img_url = url + gen_img
+                producer.send(topic=topic, key='gen', value=gen_img_url)
+
+                orig_img_url = url + orig_img
+                producer.send(topic=topic, key='orig', value=orig_img_url)
                 break
 
 
