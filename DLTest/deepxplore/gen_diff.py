@@ -196,6 +196,7 @@ def deepXplore(seeds=100, transformation='light', weight_diff=1, weight_nc=0.1, 
                 producer.send(topic=topic, key='orig', value=orig_img_url)
                 break
 
+    producer.send(topic=topic, key="stop", value="stop")
 
 if __name__ == '__main__':
     deepXplore()
